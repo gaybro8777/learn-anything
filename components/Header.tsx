@@ -15,64 +15,80 @@ const Header: FunctionComponent = () => {
   };
 
   return (
-    <header>
+    <header
+      sx={{
+        display: 'grid',
+        gridGap: 3,
+        // maxWidth: 768,
+        mx: 'auto',
+        px: 3,
+        py: 3,
+        gridAutoFlow: 'row',
+        gridTemplateColumns: [
+          'repeat(2, 1fr)',
+          'repeat(3, 1fr)',
+        ],
+      }}
+    >
       <div
         sx={{
-          textAlign: "center"
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gridColumnStart: [ 1, 2 ],
+          gridColumnEnd: [ 3, 3 ],
+          order: [ 0, 1 ],
         }}
       >
         <Styled.a href="/">
           <svg
             sx={{
-              position: "absolute",
-              left: "46.5%",
-              right: "53.5%",
-              flex: "0 0 100px",
-              width: "100px",
-              height: "100px",
-              minWidth: "100px",
-              minHeight: "100px",
+              width: "33px",
+              height: "62px",
               color: "inherit",
               fill: "currentColor"
             }}
-            viewBox="0 0 100 100"
+            viewBox="0 0 33 62"
           >
             <path
               fillRule="evenodd"
               clipRule="evenodd"
-              d="M41.5 52.9971V70.9971C41.5 73.0681 43.179 74.7471 45.25 74.7471C47.3211 74.7471 49 73.0681 49 70.9971V52.9971H50V76.4971C50 78.5681 51.679 80.2471 53.75 80.2471C55.8211 80.2471 57.5 78.5681 57.5 76.4971V52.9971H58.5V62.9971C58.5 65.0681 60.179 66.7471 62.25 66.7471C64.3211 66.7471 66 65.0681 66 62.9971V34.4971C66 25.3843 58.6127 19 49.5 19C40.3873 19 33 25.3844 33 34.4971V65.9971C33 68.0681 34.679 69.7471 36.75 69.7471C38.8211 69.7471 40.5 68.0681 40.5 65.9971V52.9971H41.5ZM43.5 34.497C43.5 35.4636 42.7165 36.247 41.75 36.247C40.7835 36.247 40 35.4636 40 34.497C40 33.5305 40.7835 32.747 41.75 32.747C42.7165 32.747 43.5 33.5305 43.5 34.497ZM57.25 36.247C58.2165 36.247 59 35.4635 59 34.497C59 33.5305 58.2165 32.747 57.25 32.747C56.2835 32.747 55.5 33.5305 55.5 34.497C55.5 35.4635 56.2835 36.247 57.25 36.247ZM45 40.497C45 40.497 45 43.997 49.5 43.997C54 43.997 54 40.497 54 40.497H45Z"
+              d="M8.5 33.9971V51.9971C8.5 54.0681 10.179 55.7471 12.25 55.7471C14.3211 55.7471 16 54.0681 16 51.9971V33.9971H17V57.4971C17 59.5681 18.679 61.2471 20.75 61.2471C22.8211 61.2471 24.5 59.5681 24.5 57.4971V33.9971H25.5V43.9971C25.5 46.0681 27.179 47.7471 29.25 47.7471C31.3211 47.7471 33 46.0681 33 43.9971V15.4971C33 6.38434 25.6127 0 16.5 0C7.38727 0 0 6.3844 0 15.4971V46.9971C0 49.0681 1.67896 50.7471 3.75 50.7471C5.82111 50.7471 7.5 49.0681 7.5 46.9971V33.9971H8.5ZM10.5 15.497C10.5 16.4636 9.71649 17.247 8.75 17.247C7.78351 17.247 7 16.4636 7 15.497C7 14.5305 7.78351 13.747 8.75 13.747C9.71649 13.747 10.5 14.5305 10.5 15.497ZM24.25 17.247C25.2165 17.247 26 16.4635 26 15.497C26 14.5305 25.2165 13.747 24.25 13.747C23.2835 13.747 22.5 14.5305 22.5 15.497C22.5 16.4635 23.2835 17.247 24.25 17.247ZM12 21.497C12 21.497 12 24.997 16.5 24.997C21 24.997 21 21.497 21 21.497H12Z"
             />
           </svg>
         </Styled.a>
-        <div
+      </div>
+      <div
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
+          order: 2
+        }}
+      >
+        <Styled.a
+          href="/guide/new"
           sx={{
-            float: "right"
+            appearance: "none",
+            fontFamily: "inherit",
+            fontSize: 1,
+            m: 0,
+            px: 2,
+            py: 2,
+            color: "currentColor",
+            bg: "muted",
+            border: 0,
+            borderRadius: 2,
+            ":focus": {
+              outline: "2px solid"
+            }
           }}
         >
-          <Styled.a
-            href="/guide/new"
-            sx={{
-              appearance: "none",
-              fontFamily: "inherit",
-              fontSize: 1,
-              m: 0,
-              px: 2,
-              py: 2,
-              color: "currentColor",
-              bg: "muted",
-              border: 0,
-              borderRadius: 2,
-              ":focus": {
-                outline: "2px solid"
-              }
-            }}
-          >
-            New Guide
-          </Styled.a>
-          <Button sx={{ ml: 2 }} onClick={handleThemeChange}>
-            {mode}
-          </Button>
-        </div>
+          New Guide
+        </Styled.a>
+        <Button sx={{ ml: 2 }} onClick={handleThemeChange}>
+          {mode}
+        </Button>
       </div>
     </header>
   );
